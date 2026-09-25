@@ -1,3 +1,4 @@
-# Riccardo Buzzolan · Ripetizioni Schio
+# Repository storico
 
-Sito portfolio e ripetizioni: economia aziendale, diritto, storia e geografia. Contatti via WhatsApp ed email.
+Questo sito reindirizza al portfolio aggiornato:
+https://riccardobuzzolan.github.io/
