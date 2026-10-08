@@ -1,0 +1,23 @@
+name: Quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  redirect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - name: Validate legacy redirect
+        run: |
+          grep -q 'noindex, follow' index.html
+          grep -q 'https://riccardobuzzolan.github.io/' index.html
+          grep -q '"permanent": true' vercel.json
