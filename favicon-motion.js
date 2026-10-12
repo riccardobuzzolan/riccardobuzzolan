@@ -72,8 +72,9 @@
         } else if (mode === 'breathe') {
           const sx = 1 - progress * .18;
           subject.setAttribute('transform', 'translate(' + (32 * (1 - sx)).toFixed(2) + ' 0) scale(' + sx.toFixed(3) + ' 1)');
-        } else if (mode === 'sway') {
-          subject.setAttribute('stroke-dashoffset', String(36 * (1 - progress)));
+        } else if (mode === 'draw') {
+          subject.setAttribute('stroke-dashoffset', String(100 * (1 - progress)));
+          subject.setAttribute('opacity', String(.3 + .7 * progress));
         }
         const uri = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
           new XMLSerializer().serializeToString(snapshot)
