@@ -1,12 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Riccardo Buzzolan: monogramma RB cinetico">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Monogramma RB con reveal geometrico animato">
+<title>Riccardo Buzzolan</title><defs><clipPath id="wipe"><rect id="motion" x="31" y="9" width="31" height="47"/></clipPath><linearGradient id="ink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7458F4"/><stop offset="1" stop-color="#405BF5"/></linearGradient></defs>
 <style>
-#motion{stroke-dasharray:110;stroke-dashoffset:0;animation:reveal 3s cubic-bezier(.22,1,.36,1) infinite}
-#accent{transform-origin:51px 13px;animation:signal 3s ease-in-out infinite}
-@keyframes reveal{0%,10%{stroke-dashoffset:110;opacity:.25}48%,82%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:110;opacity:.25}}
-@keyframes signal{0%,10%,100%{transform:translateY(-3px);opacity:.3}48%,82%{transform:translateY(0);opacity:1}}
-@media(prefers-reduced-motion:reduce){#motion,#accent{animation:none;stroke-dashoffset:0;opacity:1}}
+#motion{transform-origin:31px 32px;animation:wipe 3.6s cubic-bezier(.22,1,.36,1) infinite}
+#accent{animation:accent 3.6s ease-in-out infinite}
+@keyframes wipe{0%,12%{transform:scaleX(.08)}50%,85%{transform:scaleX(1)}100%{transform:scaleX(.08)}}
+@keyframes accent{0%,20%,100%{opacity:.3;transform:translateX(-5px)}54%,85%{opacity:1;transform:translateX(0)}}
+@media(prefers-color-scheme:dark){#letter-r{stroke:#F0F3FA}}
+@media(prefers-reduced-motion:reduce){#motion,#accent{animation:none}}
 </style>
-<path d="M8 52V13H23C33 13 37 17 37 25s-5 12-14 12H8m15 0 14 15" stroke="#202632" stroke-width="6.4" stroke-linejoin="round" stroke-linecap="square" fill="none"/>
-<path id="motion" d="M40 13H47C55 13 59 17 59 23c0 6-4 10-12 10h-7m0 0h8c9 0 12 4 12 10s-4 9-13 9h-7V13" pathLength="110" stroke="#7458FF" stroke-width="6.2" stroke-linecap="square" stroke-linejoin="round" fill="none"/>
-<path id="accent" d="M50 7h9" stroke="#00BDCC" stroke-width="3.3" stroke-linecap="round" fill="none"/>
+<path id="letter-r" d="M7 53V12H23c9 0 14 5 14 13s-5 13-14 13H7m17 0 13 15" fill="none" stroke="#171E30" stroke-width="6.8" stroke-linejoin="round" stroke-linecap="square"/>
+<g clip-path="url(#wipe)" fill="none" stroke="url(#ink)" stroke-width="6.8" stroke-linejoin="round" stroke-linecap="square"><path d="M41 12h7c8 0 12 4 12 10 0 7-4 11-12 11h-7m0 0h7c9 0 13 4 13 11 0 6-4 9-13 9h-7V12"/></g>
+<path id="accent" d="M42 6h15" stroke="#16C5D8" stroke-width="3.2" stroke-linecap="round"/>
 </svg>
