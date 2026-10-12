@@ -72,9 +72,23 @@
         } else if (mode === 'breathe') {
           const sx = 1 - progress * .18;
           subject.setAttribute('transform', 'translate(' + (32 * (1 - sx)).toFixed(2) + ' 0) scale(' + sx.toFixed(3) + ' 1)');
-        } else if (mode === 'draw') {
-          subject.setAttribute('stroke-dashoffset', String(100 * (1 - progress)));
-          subject.setAttribute('opacity', String(.3 + .7 * progress));
+        } else if (mode === 'kinetic') {
+          const t = index / count;
+          const ease = (v) => 1 - Math.pow(1 - v, 3);
+          let sx;
+          if (t <= 0.09) sx = 0.08;
+          else if (t < 0.38) sx = 0.08 + 0.92 * ease((t - 0.09) / 0.29);
+          else if (t <= 0.76) sx = 1;
+          else sx = 1 - 0.92 * ease((t - 0.76) / 0.24);
+          subject.setAttribute('transform', 'translate(46 36) scale(' + sx.toFixed(4) + ' 1) translate(-46 -36)');
+          subject.setAttribute('opacity', String(Math.min(1, .45 + .55 * ((sx - .08) / .92))));
+          const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const r = snapshot.querySelector('#letter-r');
+          const b = snapshot.querySelector('#letter-b');
+          if (!r || !b) throw new Error('Missing monogram paths');
+          r.setAttribute('stroke', dark ? '#EAF1F5' : '#213342');
+          b.setAttribute('stroke', dark ? '#6AB5FF' : '#267AD9');
+          subject.setAttribute('stroke', dark ? '#6AB5FF' : '#267AD9');
         }
         const uri = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
           new XMLSerializer().serializeToString(snapshot)
