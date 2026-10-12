@@ -1,10 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Monogramma RB">
-<style>
-@keyframes underline{0%,13%{stroke-dashoffset:36;opacity:.2}60%,85%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:36;opacity:.2}}
-#motion{stroke-dasharray:36;animation:underline 3s ease-in-out infinite}
-@media(prefers-reduced-motion:reduce){#motion{animation:none;stroke-dashoffset:0;opacity:1}}
-</style>
-<path d="M9 48V14h16c9 0 14 4 14 11s-5 10-13 10H9m16 0 15 13" fill="none" stroke="#20272F" stroke-width="5.5" stroke-linecap="square" stroke-linejoin="round"/>
-<path d="M36 15h11c7 0 11 4 11 9 0 5-3 8-9 10 7 1 10 5 10 10 0 5-4 8-12 8h-7" fill="none" stroke="#20272F" stroke-width="4.5" stroke-linejoin="round"/>
-<path id="motion" d="M10 56H47" fill="none" stroke="#C69255" stroke-width="3" stroke-linecap="round" stroke-dasharray="36"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="RB - Riccardo Buzzolan">
+  <style>
+    @keyframes drawB {
+      0%, 12% { stroke-dashoffset: 100; opacity: .3; }
+      58%, 83% { stroke-dashoffset: 0; opacity: 1; }
+      100% { stroke-dashoffset: 100; opacity: .3; }
+    }
+    #motion { stroke-dasharray: 100; stroke-dashoffset: 0; animation: drawB 2.88s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { #motion { animation: none; stroke-dashoffset: 0; opacity: 1; } }
+  </style>
+  <path d="M8 51V13H22C31 13 36 17 36 25S31 37 22 37H8M23 37 36 51" fill="none" stroke="#087789" stroke-width="6" stroke-linejoin="round" stroke-linecap="square" />
+  <path id="motion" d="M38 13H44C52 13 56 17 56 23C56 28 53 32 45 32C53 32 57 36 57 42C57 48 53 51 44 51H38V13" fill="none" stroke="#CA8246" stroke-width="6" stroke-linejoin="round" stroke-linecap="square" pathLength="100" stroke-dasharray="100" />
 </svg>
