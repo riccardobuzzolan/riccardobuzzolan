@@ -9,7 +9,7 @@
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   const mode = link.dataset.faviconMode || 'float';
   const frames = [];
-  const count = 16;
+  const count = 24;
   let cursor = 0;
   let interval = null;
   let running = false;
@@ -35,7 +35,7 @@
       cursor = (cursor + 1) % count;
     }
     advance();
-    interval = window.setInterval(advance, 180);
+    interval = window.setInterval(advance, 133);
   }
 
   async function prepare() {
