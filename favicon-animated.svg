@@ -1,13 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="RB - Riccardo Buzzolan">
-  <style>
-    @keyframes drawB {
-      0%, 12% { stroke-dashoffset: 100; opacity: .3; }
-      58%, 83% { stroke-dashoffset: 0; opacity: 1; }
-      100% { stroke-dashoffset: 100; opacity: .3; }
-    }
-    #motion { stroke-dasharray: 100; stroke-dashoffset: 0; animation: drawB 2.88s ease-in-out infinite; }
-    @media (prefers-reduced-motion: reduce) { #motion { animation: none; stroke-dashoffset: 0; opacity: 1; } }
-  </style>
-  <path d="M8 51V13H22C31 13 36 17 36 25S31 37 22 37H8M23 37 36 51" fill="none" stroke="#087789" stroke-width="6" stroke-linejoin="round" stroke-linecap="square" />
-  <path id="motion" d="M38 13H44C52 13 56 17 56 23C56 28 53 32 45 32C53 32 57 36 57 42C57 48 53 51 44 51H38V13" fill="none" stroke="#CA8246" stroke-width="6" stroke-linejoin="round" stroke-linecap="square" pathLength="100" stroke-dasharray="100" />
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" role="img" aria-label="RB Riccardo Buzzolan">
+<title>RB | Riccardo Buzzolan</title>
+<style>
+  #letter-r { stroke: #213342; }
+  #letter-b, #motion { stroke: #267AD9; }
+  #motion {
+    transform-origin: 46px 36px;
+    animation: unfold 3.2s cubic-bezier(.22,1,.36,1) infinite;
+  }
+  @keyframes unfold {
+    0%, 9% { transform: scaleX(.08); opacity: .45; }
+    38%, 76% { transform: scaleX(1); opacity: 1; }
+    100% { transform: scaleX(.08); opacity: .45; }
+  }
+  @media (prefers-color-scheme: dark) {
+    #letter-r { stroke: #EAF1F5; }
+    #letter-b, #motion { stroke: #6AB5FF; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #motion { animation: none; transform: scaleX(1); opacity: 1; }
+  }
+</style>
+<g fill="none" stroke-width="7.3" stroke-linejoin="round" stroke-linecap="square">
+  <path id="letter-r" stroke="#213342" d="M11 57V15H25C34 15 39 20 39 27.5C39 35 34 40 25 40H11M26 40L39 57"/>
+  <path id="letter-b" stroke="#267AD9" d="M46 15V57"/>
+  <g id="motion" stroke="#267AD9">
+    <path d="M46 15H53C61 15 65 19 65 25C65 31 61 35 53 35H46"/>
+    <path d="M46 35H53C62 35 65 40 65 46C65 53 61 57 53 57H46"/>
+  </g>
+</g>
 </svg>
