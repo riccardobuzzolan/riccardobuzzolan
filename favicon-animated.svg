@@ -1,13 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Monogramma RB che si compone progressivamente">
-<title>Portfolio Riccardo Buzzolan — Monogramma</title><style>
-#b{stroke-dasharray:100;stroke-dashoffset:100;animation:write 3.5s cubic-bezier(.4,.02,.2,1) infinite}
-#accent{stroke-dasharray:100;stroke-dashoffset:100;animation:line 3.5s cubic-bezier(.22,1,.36,1) infinite}
-@keyframes write{0%,12%{stroke-dashoffset:100}53%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:100}}
-@keyframes line{0%,18%{stroke-dashoffset:100}58%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:100}}
-@media(prefers-color-scheme:dark){#r{stroke:#E7ECEF}}
-@media(prefers-reduced-motion:reduce){#b,#accent{animation:none;stroke-dashoffset:0}}
-</style>
-<path id="r" d="M8 52V12h15c9 0 14 5 14 13s-5 12-14 12H8m16 0 13 15" fill="none" stroke="#213745" stroke-width="6.6" stroke-linecap="square" stroke-linejoin="round"/>
-<path id="b" d="M41 12h7c8 0 12 4 12 10 0 6-4 10-12 10h-7m0 0h7c9 0 13 4 13 11 0 6-4 9-13 9h-7V12" fill="none" stroke="#C98E53" stroke-width="6.5" stroke-linecap="square" stroke-linejoin="round" pathLength="100"/>
-<path id="accent" d="M42 6h16" fill="none" stroke="#59B7B0" stroke-width="3.2" stroke-linecap="round" pathLength="100"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Firma personale animata che si compone"><title>Segno — Riccardo Buzzolan</title><style>
+#loop{stroke-dasharray:100;stroke-dashoffset:100;animation:loopdraw 3.8s cubic-bezier(.38,.02,.24,1) infinite}#leg{transform-origin:39px 40px;animation:fold 3.8s cubic-bezier(.22,.8,.24,1) infinite}#seal{transform-origin:50px 12px;animation:seal 3.8s cubic-bezier(.22,.8,.24,1) infinite}
+@keyframes loopdraw{0%,12%,100%{stroke-dashoffset:100}51%,86%{stroke-dashoffset:0}}@keyframes fold{0%,20%,100%{transform:rotate(-47deg) scale(.65);opacity:0}53%,86%{transform:rotate(0deg) scale(1);opacity:1}}@keyframes seal{0%,34%,100%{transform:scale(.12);opacity:0}58%,86%{transform:scale(1);opacity:1}}
+@media(prefers-reduced-motion:reduce){#loop,#leg,#seal{animation:none}#loop{stroke-dashoffset:0}#leg,#seal{opacity:1;transform:scale(1)}}</style>
+<rect x="0" y="0" width="64" height="64" rx="10" fill="#FFFFFF"/><path id="stem" d="M14 52V12" fill="none" stroke="#173CB8" stroke-width="8.5" stroke-linecap="round"/><path id="loop" d="M14 12H32C45 12 51 19 51 29S44 45 31 45H14" pathLength="100" fill="none" stroke="#173CB8" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/><g id="leg"><path d="M31 40 51 54" fill="none" stroke="#FF5C4E" stroke-width="9" stroke-linecap="round"/></g><g id="seal"><circle cx="50" cy="12" r="3.4" fill="#00CBB1"/></g></svg>
