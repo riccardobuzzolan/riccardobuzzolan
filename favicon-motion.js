@@ -65,15 +65,19 @@
         break;
       }
       case 'reveal': {
-        const scale = .08 + p * .92;
-        primary.setAttribute('transform', `translate(31 32) scale(${scale.toFixed(3)} 1) translate(-31 -32)`);
+        const scale = .025 + p * .975;
+        primary.setAttribute('transform', `translate(37 32) scale(${scale.toFixed(3)} 1) translate(-37 -32)`);
         const accent = svg.querySelector('#accent');
         if (accent) {
-          accent.setAttribute('transform', `translate(${(-5 * (1 - p)).toFixed(2)} 0)`);
-          accent.setAttribute('opacity', String((.3 + .7 * p).toFixed(2)));
+          accent.setAttribute('stroke-dasharray', '28');
+          accent.setAttribute('stroke-dashoffset', String((28 * (1 - p)).toFixed(2)));
+          accent.setAttribute('opacity', String((.2 + .8 * p).toFixed(2)));
         }
         const letterR = svg.querySelector('#letter-r');
-        if (letterR && dark.matches) letterR.setAttribute('stroke', '#F0F3FA');
+        if (letterR) {
+          letterR.setAttribute('transform', `translate(${(3 * (1 - p)).toFixed(2)} 0)`);
+          if (dark.matches) letterR.setAttribute('stroke', '#F1F4F7');
+        }
         break;
       }
       default:
