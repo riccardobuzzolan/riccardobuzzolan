@@ -1,14 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Monogramma RB con reveal geometrico animato">
-<title>Riccardo Buzzolan</title><defs><clipPath id="wipe"><rect id="motion" x="31" y="9" width="31" height="47"/></clipPath><linearGradient id="ink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7458F4"/><stop offset="1" stop-color="#405BF5"/></linearGradient></defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Monogramma RB con reveal tipografico animato">
+<title>Riccardo Buzzolan · Letter reveal</title>
+<defs><clipPath id="unfold"><rect id="motion" x="37" y="7" width="27" height="51"/></clipPath></defs>
 <style>
-#motion{transform-origin:31px 32px;animation:wipe 3.6s cubic-bezier(.22,1,.36,1) infinite}
-#accent{animation:accent 3.6s ease-in-out infinite}
-@keyframes wipe{0%,12%{transform:scaleX(.08)}50%,85%{transform:scaleX(1)}100%{transform:scaleX(.08)}}
-@keyframes accent{0%,20%,100%{opacity:.3;transform:translateX(-5px)}54%,85%{opacity:1;transform:translateX(0)}}
-@media(prefers-color-scheme:dark){#letter-r{stroke:#F0F3FA}}
-@media(prefers-reduced-motion:reduce){#motion,#accent{animation:none}}
+#motion{transform-origin:37px 32px;animation:reveal 3.6s cubic-bezier(.22,1,.36,1) infinite}
+#letter-r{animation:shift 3.6s cubic-bezier(.22,1,.36,1) infinite}
+#accent{stroke-dasharray:28;animation:line 3.6s cubic-bezier(.22,1,.36,1) infinite}
+@keyframes reveal{0%,9%{transform:scaleX(.025)}54%,82%{transform:scaleX(1)}100%{transform:scaleX(.025)}}
+@keyframes shift{0%,9%{transform:translateX(3px)}54%,82%{transform:translateX(0)}100%{transform:translateX(3px)}}
+@keyframes line{0%,18%{stroke-dashoffset:28;opacity:.2}58%,82%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:28;opacity:.2}}
+@media(prefers-color-scheme:dark){#letter-r{stroke:#F1F4F7}}
+@media(prefers-reduced-motion:reduce){#motion,#letter-r,#accent{animation:none}#motion{transform:scaleX(1)}#accent{stroke-dashoffset:0;opacity:1}}
 </style>
-<path id="letter-r" d="M7 53V12H23c9 0 14 5 14 13s-5 13-14 13H7m17 0 13 15" fill="none" stroke="#171E30" stroke-width="6.8" stroke-linejoin="round" stroke-linecap="square"/>
-<g clip-path="url(#wipe)" fill="none" stroke="url(#ink)" stroke-width="6.8" stroke-linejoin="round" stroke-linecap="square"><path d="M41 12h7c8 0 12 4 12 10 0 7-4 11-12 11h-7m0 0h7c9 0 13 4 13 11 0 6-4 9-13 9h-7V12"/></g>
-<path id="accent" d="M42 6h15" stroke="#16C5D8" stroke-width="3.2" stroke-linecap="round"/>
+<path id="letter-r" d="M8 52V12h14c9 0 14 5 14 13S31 38 22 38H8m16 0 12 14" fill="none" stroke="#1D2734" stroke-width="6.4" stroke-linejoin="round" stroke-linecap="square"/>
+<g clip-path="url(#unfold)"><path d="M41 12h7c8 0 12 4 12 10s-4 10-12 10h-7m0 0h7c9 0 13 4 13 11s-4 9-13 9h-7V12" fill="none" stroke="#705BF4" stroke-width="6.3" stroke-linejoin="round" stroke-linecap="square"/></g>
+<path id="accent" d="M36 6h23" fill="none" stroke="#19C6D7" stroke-width="3.2" stroke-linecap="round" pathLength="28"/>
 </svg>
