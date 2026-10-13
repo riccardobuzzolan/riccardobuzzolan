@@ -30,54 +30,47 @@
 
   function applyFrame(svg, i) {
     const t = i / frameCount;
-    const primary = svg.querySelector('#motion, #trail, #tick, #route, #page, #b');
-    if (!primary) throw new Error('Animated SVG subject is missing');
-    const p = reveal(t, .12, .55, .84);
-    const transform = (id, value) => {
-      const node = svg.querySelector(id);
-      if (node) node.setAttribute('transform', value);
+    const p = reveal(t, .12, .47, .80);
+    const p2 = reveal(t, .27, .52, .80);
+    const tr = (id, transform, opacity) => {
+      const el = svg.querySelector('#' + id);
+      if (!el) throw new Error('Missing favicon motion element: ' + id);
+      if (transform) el.setAttribute('transform', transform);
+      if (opacity !== undefined) el.setAttribute('opacity', String(opacity));
+      return el;
     };
-
     switch (mode) {
-      case 'orbit': {
-        primary.setAttribute('transform', `rotate(${(360 * t).toFixed(2)} 32 32)`);
-        const lift = Math.sin(Math.PI * Math.min(1, t / .7)) ** 2 * -3;
-        transform('#pin', `translate(0 ${lift.toFixed(2)})`);
+      case 'coordinates':
+        tr('n', 'translate(0 ' + (-9*(1-p)).toFixed(2) + ')');
+        tr('s', 'translate(0 ' + (9*(1-p)).toFixed(2) + ')');
+        tr('e', 'translate(' + (9*(1-p)).toFixed(2) + ' 0)');
+        tr('w', 'translate(' + (-9*(1-p)).toFixed(2) + ' 0)');
+        tr('heart', 'translate(32 32) scale(' + (.25+.75*p2).toFixed(3) + ') translate(-32 -32)', p2);
         break;
-      }
-      case 'check': {
-        primary.setAttribute('stroke-dasharray', '38');
-        primary.setAttribute('stroke-dashoffset', String((38 * (1 - p)).toFixed(2)));
-        transform('#corner', `rotate(${(-9 * p).toFixed(2)} 46 47)`);
+      case 'balance':
+        tr('top', 'translate(0 ' + (-10*(1-p)).toFixed(2) + ')');
+        tr('left', 'translate(' + (-10*(1-p)).toFixed(2) + ' 0)');
+        tr('right', 'translate(' + (10*(1-p)).toFixed(2) + ' 0)');
+        tr('equal', 'translate(32 38) scale(' + (.35+.65*p2).toFixed(3) + ') translate(-32 -38)', p2);
         break;
-      }
-      case 'route': {
-        primary.setAttribute('stroke-dasharray', '100');
-        primary.setAttribute('stroke-dashoffset', String((100 * (1 - p)).toFixed(2)));
-        const s = .78 + p * .38;
-        transform('#destination', `translate(52 31) scale(${s.toFixed(3)}) translate(-52 -31)`);
+      case 'pattern':
+        tr('corners','translate(32 32) rotate('+(-24*(1-p)).toFixed(2)+') scale('+(1+.28*(1-p)).toFixed(3)+') translate(-32 -32)',.45+.55*p);
+        tr('sides','translate(32 32) rotate('+(18*(1-p)).toFixed(2)+') scale(' + (.84+.16*p).toFixed(3)+') translate(-32 -32)',.5+.5*p);
+        tr('center','translate(32 32) rotate('+(-45*(1-p2)).toFixed(2)+') scale('+(.15+.85*p2).toFixed(3)+') translate(-32 -32)',p2);
         break;
-      }
-      case 'page': {
-        const angle = -31 * Math.sin(Math.PI * p);
-        primary.setAttribute('transform', `rotate(${angle.toFixed(2)} 32 49)`);
-        transform('#orbit', `rotate(${(360 * t).toFixed(2)} 32 32)`);
+      case 'dialogue':
+        tr('voice-a','translate('+(-11*(1-p)).toFixed(2)+' '+(-7*(1-p)).toFixed(2)+')',.55+.45*p);
+        tr('voice-b','translate('+(11*(1-p)).toFixed(2)+' '+(7*(1-p)).toFixed(2)+')',.55+.45*p);
+        tr('insight','translate(32 31) rotate('+(-35*(1-p2)).toFixed(2)+') scale(' + (.1+.9*p2).toFixed(3)+') translate(-32 -31)',p2);
         break;
-      }
-      case 'reveal': {
-        primary.setAttribute('stroke-dasharray','100');
-        primary.setAttribute('stroke-dashoffset',String((100*(1-p)).toFixed(2)));
-        const accent=svg.querySelector('#accent');
-        if(accent){
-          accent.setAttribute('stroke-dasharray','100');
-          accent.setAttribute('stroke-dashoffset',String((100*(1-p)).toFixed(2)));
-        }
-        const r=svg.querySelector('#r');
-        if(r&&dark.matches)r.setAttribute('stroke','#E7ECEF');
+      case 'ribbon':
+        const path=tr('loop');
+        path.setAttribute('stroke-dasharray','100');
+        path.setAttribute('stroke-dashoffset',(100*(1-p)).toFixed(2));
+        tr('leg','translate(39 40) rotate('+(-47*(1-p2)).toFixed(2)+') scale('+(.65+.35*p2).toFixed(3)+') translate(-39 -40)',p2);
+        tr('seal','translate(50 12) scale('+(.12+.88*p2).toFixed(3)+') translate(-50 -12)',p2);
         break;
-      }
-      default:
-        throw new Error('Unsupported favicon motion');
+      default: throw new Error('Unknown favicon animation mode');
     }
   }
 
