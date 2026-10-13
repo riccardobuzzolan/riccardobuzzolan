@@ -1,17 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Monogramma RB con reveal tipografico animato">
-<title>Riccardo Buzzolan · Letter reveal</title>
-<defs><clipPath id="unfold"><rect id="motion" x="37" y="7" width="27" height="51"/></clipPath></defs>
-<style>
-#motion{transform-origin:37px 32px;animation:reveal 3.6s cubic-bezier(.22,1,.36,1) infinite}
-#letter-r{animation:shift 3.6s cubic-bezier(.22,1,.36,1) infinite}
-#accent{stroke-dasharray:28;animation:line 3.6s cubic-bezier(.22,1,.36,1) infinite}
-@keyframes reveal{0%,9%{transform:scaleX(.025)}54%,82%{transform:scaleX(1)}100%{transform:scaleX(.025)}}
-@keyframes shift{0%,9%{transform:translateX(3px)}54%,82%{transform:translateX(0)}100%{transform:translateX(3px)}}
-@keyframes line{0%,18%{stroke-dashoffset:28;opacity:.2}58%,82%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:28;opacity:.2}}
-@media(prefers-color-scheme:dark){#letter-r{stroke:#F1F4F7}}
-@media(prefers-reduced-motion:reduce){#motion,#letter-r,#accent{animation:none}#motion{transform:scaleX(1)}#accent{stroke-dashoffset:0;opacity:1}}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Monogramma RB che si compone progressivamente">
+<title>Portfolio Riccardo Buzzolan — Monogramma</title><style>
+#b{stroke-dasharray:100;stroke-dashoffset:100;animation:write 3.5s cubic-bezier(.4,.02,.2,1) infinite}
+#accent{stroke-dasharray:100;stroke-dashoffset:100;animation:line 3.5s cubic-bezier(.22,1,.36,1) infinite}
+@keyframes write{0%,12%{stroke-dashoffset:100}53%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:100}}
+@keyframes line{0%,18%{stroke-dashoffset:100}58%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:100}}
+@media(prefers-color-scheme:dark){#r{stroke:#E7ECEF}}
+@media(prefers-reduced-motion:reduce){#b,#accent{animation:none;stroke-dashoffset:0}}
 </style>
-<path id="letter-r" d="M8 52V12h14c9 0 14 5 14 13S31 38 22 38H8m16 0 12 14" fill="none" stroke="#1D2734" stroke-width="6.4" stroke-linejoin="round" stroke-linecap="square"/>
-<g clip-path="url(#unfold)"><path d="M41 12h7c8 0 12 4 12 10s-4 10-12 10h-7m0 0h7c9 0 13 4 13 11s-4 9-13 9h-7V12" fill="none" stroke="#705BF4" stroke-width="6.3" stroke-linejoin="round" stroke-linecap="square"/></g>
-<path id="accent" d="M36 6h23" fill="none" stroke="#19C6D7" stroke-width="3.2" stroke-linecap="round" pathLength="28"/>
+<path id="r" d="M8 52V12h15c9 0 14 5 14 13s-5 12-14 12H8m16 0 13 15" fill="none" stroke="#213745" stroke-width="6.6" stroke-linecap="square" stroke-linejoin="round"/>
+<path id="b" d="M41 12h7c8 0 12 4 12 10 0 6-4 10-12 10h-7m0 0h7c9 0 13 4 13 11 0 6-4 9-13 9h-7V12" fill="none" stroke="#C98E53" stroke-width="6.5" stroke-linecap="square" stroke-linejoin="round" pathLength="100"/>
+<path id="accent" d="M42 6h16" fill="none" stroke="#59B7B0" stroke-width="3.2" stroke-linecap="round" pathLength="100"/>
 </svg>
