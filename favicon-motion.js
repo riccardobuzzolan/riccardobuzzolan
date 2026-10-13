@@ -30,7 +30,7 @@
 
   function applyFrame(svg, i) {
     const t = i / frameCount;
-    const primary = svg.querySelector('#motion');
+    const primary = svg.querySelector('#motion, #trail, #tick, #route, #page, #b');
     if (!primary) throw new Error('Animated SVG subject is missing');
     const p = reveal(t, .12, .55, .84);
     const transform = (id, value) => {
@@ -65,19 +65,15 @@
         break;
       }
       case 'reveal': {
-        const scale = .025 + p * .975;
-        primary.setAttribute('transform', `translate(37 32) scale(${scale.toFixed(3)} 1) translate(-37 -32)`);
-        const accent = svg.querySelector('#accent');
-        if (accent) {
-          accent.setAttribute('stroke-dasharray', '28');
-          accent.setAttribute('stroke-dashoffset', String((28 * (1 - p)).toFixed(2)));
-          accent.setAttribute('opacity', String((.2 + .8 * p).toFixed(2)));
+        primary.setAttribute('stroke-dasharray','100');
+        primary.setAttribute('stroke-dashoffset',String((100*(1-p)).toFixed(2)));
+        const accent=svg.querySelector('#accent');
+        if(accent){
+          accent.setAttribute('stroke-dasharray','100');
+          accent.setAttribute('stroke-dashoffset',String((100*(1-p)).toFixed(2)));
         }
-        const letterR = svg.querySelector('#letter-r');
-        if (letterR) {
-          letterR.setAttribute('transform', `translate(${(3 * (1 - p)).toFixed(2)} 0)`);
-          if (dark.matches) letterR.setAttribute('stroke', '#F1F4F7');
-        }
+        const r=svg.querySelector('#r');
+        if(r&&dark.matches)r.setAttribute('stroke','#E7ECEF');
         break;
       }
       default:
