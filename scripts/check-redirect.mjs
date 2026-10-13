@@ -3,6 +3,14 @@ import { extname, join, relative, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
 export const destination = "https://riccardobuzzolan.github.io/";
+export const motionCsp =
+  "default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'";
+const motionAsset = (value, filename) =>
+  new RegExp(
+    `^\\./${filename.replaceAll(".", "\\.")}(?:\\?v=[A-Za-z0-9_-]{1,64})?$`,
+  ).test(value ?? "");
+const motionScript =
+  /<script\s+src=(["'])\.\/favicon-motion\.js(?:\?v=[A-Za-z0-9_-]{1,64})?\1\s+defer\s*>\s*<\/script\s*>/gi;
 
 function attributes(tag) {
   return Object.fromEntries(
@@ -11,6 +19,14 @@ function attributes(tag) {
       match[3],
     ]),
   );
+}
+
+function uniqueAttributes(tag) {
+  const body = tag.replace(/^<[\w:-]+\b|\/?>$/g, "");
+  const names = [
+    ...body.matchAll(/([a-z][\w:-]*)(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+))?/gi),
+  ].map((match) => match[1].toLowerCase());
+  return new Set(names).size === names.length;
 }
 
 export function validate(directory = ".") {
@@ -26,9 +42,42 @@ export function validate(directory = ".") {
   };
   for (const name of ["index.html", "404.html"]) {
     const html = read(name);
+    const allowedScripts =
+      name === "index.html" ? [...html.matchAll(motionScript)] : [];
+    const iconTags = [...html.matchAll(/<link\b[^>]*>/gi)].filter((match) => {
+      const tag = attributes(match[0]);
+      return (
+        name === "index.html" &&
+        tag.rel === "icon" &&
+        tag.type === "image/svg+xml" &&
+        tag["data-motion"] === "ribbon" &&
+        /\sdata-favicon-motion(?:\s|\/?>)/i.test(match[0]) &&
+        motionAsset(tag.href, "favicon-animated.svg") &&
+        uniqueAttributes(match[0]) &&
+        Object.keys(tag).every((key) =>
+          ["rel", "type", "href", "data-motion"].includes(key),
+        ) &&
+        !/\son[a-z]+\s*=/i.test(match[0])
+      );
+    });
+    const hasMotion = allowedScripts.length > 0 || iconTags.length > 0;
     const meta = [...html.matchAll(/<meta\b[^>]*>/gi)].map((match) =>
       attributes(match[0]),
     );
+    if (hasMotion) {
+      if (allowedScripts.length !== 1 || iconTags.length !== 1)
+        errors.push(
+          `${name}: one local motion favicon and deferred script required`,
+        );
+      const policies = meta.filter(
+        (tag) => tag["http-equiv"]?.toLowerCase() === "content-security-policy",
+      );
+      if (policies.length !== 1 || policies[0].content !== motionCsp)
+        errors.push(`${name}: motion assets require the bounded local CSP`);
+      for (const asset of ["favicon-animated.svg", "favicon-motion.js"])
+        if (!existsSync(join(root, asset)))
+          errors.push(`Missing motion asset: ${asset}`);
+    }
     const canonical = [...html.matchAll(/<link\b[^>]*>/gi)]
       .map((match) => attributes(match[0]))
       .filter((tag) => tag.rel === "canonical");
@@ -66,13 +115,22 @@ export function validate(directory = ".") {
       errors.push(`${name}: title/viewport required`);
     if (
       /<script\b|<iframe\b|<form\b|<canvas\b|serviceWorker|data:image|rel=["']manifest|javascript:/i.test(
-        html,
+        name === "index.html" ? html.replace(motionScript, "") : html,
       )
     )
       errors.push(`${name}: legacy application/PWA content remains`);
-    for (const [, value] of html.matchAll(/\b(?:src|href)=["']([^"']+)["']/g))
-      if (value !== destination)
-        errors.push(`${name}: unexpected local or external reference`);
+    const allowedTags = new Set(
+      [...allowedScripts, ...iconTags].map(
+        (match) => /^<[^>]*>/.exec(match[0])[0],
+      ),
+    );
+    for (const match of html.matchAll(/<[a-z][\w:-]*\b[^>]*>/gi)) {
+      for (const [, value] of match[0].matchAll(
+        /\b(?:src|href)=["']([^"']+)["']/g,
+      ))
+        if (value !== destination && !allowedTags.has(match[0]))
+          errors.push(`${name}: unexpected local or external reference`);
+    }
   }
   try {
     const config = JSON.parse(read("vercel.json"));
