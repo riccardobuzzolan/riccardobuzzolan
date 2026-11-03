@@ -1,0 +1,34 @@
+name: Refresh documentation screenshots
+on:
+  pull_request:
+    paths:
+      - .github/workflows/screenshot-refresh.yml
+permissions:
+  contents: write
+jobs:
+  capture:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      PAGES: '[["portfolio.png","portfolio-mobile.png","https://riccardobuzzolan.github.io/",""],["ripetizioni.png","ripetizioni-mobile.png","https://riccardobuzzolan.github.io/SitoRiccardoBuzzolan/",""],["memory-atlas.png","memory-atlas-mobile.png","https://riccardobuzzolan.github.io/imparacapitalistati/","mapView"]]'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: mkdir -p docs/images
+      - name: Capture desktop and mobile after dismissing privacy banner
+        run: node .github/scripts/capture-screenshots.cjs
+      - name: Save screenshots
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/images/*.png
+          if ! git diff --cached --quiet; then
+            git commit -m "Aggiorna screenshot reali desktop e mobile"
+            git push origin HEAD:${{ github.head_ref }}
+          fi
