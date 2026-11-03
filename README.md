@@ -1,75 +1,54 @@
-# Repository storico: compatibilità e redirect
+# Riccardo Buzzolan
 
-Questo repository ha una sola funzione: accompagnare i vecchi collegamenti al
-sito attuale, https://riccardobuzzolan.github.io/. Non contiene una seconda
-implementazione del portfolio, una PWA, moduli di contatto o servizi applicativi.
+Mi interessano i progetti digitali che risolvono problemi concreti: un sito facile da consultare, un quiz per imparare, uno strumento per trovare informazioni senza perdersi tra pagine diverse.
 
-## URL e hosting reali
+Sviluppo e aggiorno siti e piccole applicazioni web. In parallelo sto approfondendo Power BI, SQL e processi ERP, con l'obiettivo di collegare le competenze digitali all'analisi aziendale.
 
-- Destinazione canonical: https://riccardobuzzolan.github.io/ (repository
-  `riccardobuzzolan.github.io`).
-- Compatibilità GitHub Pages: https://riccardobuzzolan.github.io/riccardobuzzolan/.
-- Compatibilità Vercel: https://riccardo-buzzolan-portfolio.vercel.app/;
-  progetto `riccardo-buzzolan-portfolio`, ID `prj_gcakWS3gs63hRJgFr0dFLmZFm5GN`,
-  team `riccardo-buzzolan`. È collegato a **questo** repository storico.
+![Progetti e interessi](docs/images/aree-progetti.svg)
 
-Vercel usa l'unica regola di `vercel.json`: tutti i percorsi raggiungono la
-destinazione fissa con redirect HTTP permanente. I parametri ricevuti non
-scelgono hostname o percorso del target. Le pagine HTML di fallback mantengono lo stesso URL
-canonical, `noindex, follow`, meta refresh e link manuale. Non richiedono
-JavaScript: se il refresh è bloccato, il link resta utilizzabile da tastiera.
+## Progetti
 
-GitHub Pages pubblica i file statici di `main` e ignora `vercel.json`: il meta
-refresh non equivale a un redirect HTTP permanente. Una vecchia pagina
-inesistente può mantenere il proprio status 404 mentre mostra il fallback.
-`robots.txt` permette di leggere il `noindex`; sotto il percorso Pages di questo
-progetto il controllo robots dell'origine resta nel repository principale.
-Non c'è una sitemap del sito storico, perché non ci sono pagine da indicizzare.
+### Sito personale
 
-## Struttura e controlli
+[Apri il sito](https://riccardobuzzolan.github.io/) · [Codice](https://github.com/riccardobuzzolan/riccardobuzzolan.github.io)
 
-- `index.html`, `404.html`: fallback minimale;
-- `vercel.json`: un solo redirect permanente;
-- `robots.txt`: nessun blocco che impedisca la lettura del noindex;
-- `scripts/check-redirect.mjs`: HTML, destinazioni, regola Vercel e scansione
-  dei segreti; i messaggi non mostrano eventuali valori;
-- `tests/redirect.test.mjs`: regressioni contro loop, target variabili, redirect
-  temporanei, fallback/noindex mancanti e robots contraddittori.
+![Schermata desktop del sito personale](docs/images/portfolio.png)
 
-Sono stati eliminati solo favicon, apple icon e social image che non avevano
-riferimenti nei fallback. Non servono manifest, service worker, asset del vecchio
-portfolio, pacchetti npm o variabili ambiente. I dati sono soltanto l'URL di
-destinazione e i due testi di fallback.
+Sito personale con informazioni sulle ripetizioni, progetti e contatti.
 
-Con Node 22:
+### Ripetizioni
 
-```bash
-node scripts/check-redirect.mjs
-node --test tests/redirect.test.mjs
-```
+[Apri il sito](https://riccardobuzzolan.github.io/SitoRiccardoBuzzolan/) · [Codice](https://github.com/riccardobuzzolan/SitoRiccardoBuzzolan)
 
-Per leggere il fallback locale, avviare `python -m http.server 8000` e aprire
-http://localhost:8000/. Il server locale non applica il redirect Vercel.
-Nessun comando install/build è necessario: la CI usa solo Node e le sue librerie
-standard. Dependabot controlla GitHub Actions; non esistono dipendenze npm da
-installare o sottoporre ad audit. CodeQL non è necessario per una pagina senza
-JavaScript applicativo.
+![Schermata desktop del sito ripetizioni](docs/images/ripetizioni.png)
 
-## Deploy, verifica e rollback
+Una pagina dedicata alle ripetizioni a Schio, Vicenza e online, con contenuti e contatto tramite WhatsApp o email.
 
-Lavorare su branch/PR e richiedere il check `redirect` prima del merge su `main`.
-La CI ha permessi `contents: read`, timeout e Actions fissate a SHA;
-non usa token di deploy. Il merge avvia Pages e l'integrazione Git Vercel.
-Verificare i rispettivi deployment prima di dichiarare il rilascio riuscito.
+### Memory Atlas
 
-Dopo il deploy verificare la risposta HTTP Vercel di `/` e di un vecchio percorso,
-il Location verso il portfolio attuale e l'assenza di loop; verificare i due
-fallback Pages e il link manuale. Le preview Vercel possono richiedere
-l'autenticazione dell'account/team e non rappresentano l'accessibilità pubblica
-del dominio di produzione. Gli header personalizzati di `vercel.json` non
-configurano GitHub Pages.
+[Apri il quiz](https://riccardobuzzolan.github.io/imparacapitalistati/) · [Codice](https://github.com/riccardobuzzolan/imparacapitalistati)
 
-Per rollback creare un revert del commit problematico su una nuova PR, ripetere
-i controlli e attendere entrambi i deployment. Il rollback non deve alterare il
-repository attuale o rimuovere hosting. La protezione di `main` va configurata
-manualmente in GitHub quando l'integrazione non possiede i permessi amministrativi.
+![Schermata desktop del quiz Memory Atlas](docs/images/memory-atlas.png)
+
+Quiz sulle capitali di Stati Uniti, Europa e Sud America. I progressi sono salvati nel browser ed esportabili in JSON.
+
+### Scadenze fiscali
+
+[Apri il sito](https://scadenze-fiscali.vercel.app/)
+
+Un sito per consultare le scadenze fiscali italiane. Il repository di sviluppo non è pubblico.
+
+## Strumenti
+
+Nei progetti web utilizzo HTML, CSS, JavaScript e, quando serve, TypeScript. Per pubblicare uso GitHub Pages e Vercel. Power BI, SQL ed ERP sono ambiti che sto studiando: non li presento come progetti già terminati.
+
+## Contatti
+
+- [LinkedIn](https://www.linkedin.com/in/riccardobuzzolan/)
+- [Sito personale](https://riccardobuzzolan.github.io/)
+
+*Le immagini mostrano le versioni desktop dei siti pubblicati.*
+
+## Informazioni sul repository
+
+Questo repository mantiene attivi alcuni vecchi collegamenti al portfolio. Il sito attuale si trova in [riccardobuzzolan.github.io](https://github.com/riccardobuzzolan/riccardobuzzolan.github.io). La configurazione e le istruzioni di manutenzione sono in [docs/TECHNICAL.md](docs/TECHNICAL.md).
