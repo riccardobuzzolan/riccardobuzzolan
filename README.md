@@ -14,6 +14,13 @@ Sviluppo e aggiorno siti e piccole applicazioni web. In parallelo sto approfonde
 
 ![Schermata desktop del sito personale](docs/images/portfolio.png)
 
+<details>
+<summary>Schermata mobile: portfolio</summary>
+
+![Versione mobile portfolio](docs/images/portfolio-mobile.png)
+
+</details>
+
 Sito personale con informazioni sulle ripetizioni, progetti e contatti.
 
 ### Ripetizioni
@@ -22,6 +29,13 @@ Sito personale con informazioni sulle ripetizioni, progetti e contatti.
 
 ![Schermata desktop del sito ripetizioni](docs/images/ripetizioni.png)
 
+<details>
+<summary>Schermata mobile: ripetizioni</summary>
+
+![Versione mobile ripetizioni](docs/images/ripetizioni-mobile.png)
+
+</details>
+
 Una pagina dedicata alle ripetizioni a Schio, Vicenza e online, con contenuti e contatto tramite WhatsApp o email.
 
 ### Memory Atlas
@@ -29,6 +43,13 @@ Una pagina dedicata alle ripetizioni a Schio, Vicenza e online, con contenuti e 
 [Apri il quiz](https://riccardobuzzolan.github.io/imparacapitalistati/) · [Codice](https://github.com/riccardobuzzolan/imparacapitalistati)
 
 ![Schermata desktop del quiz Memory Atlas](docs/images/memory-atlas.png)
+
+<details>
+<summary>Schermata mobile: Memory Atlas</summary>
+
+![Versione mobile Memory Atlas](docs/images/memory-atlas-mobile.png)
+
+</details>
 
 Quiz sulle capitali di Stati Uniti, Europa e Sud America. I progressi sono salvati nel browser ed esportabili in JSON.
 
