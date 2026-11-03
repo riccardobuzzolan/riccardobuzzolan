@@ -1,4 +1,5 @@
 const fs=require('node:fs'), {spawn}=require('node:child_process');
+(async()=>{
 const targets=JSON.parse(process.env.PAGES);
 const chrome=spawn('google-chrome',['--headless=new','--no-sandbox','--disable-dev-shm-usage','--disable-gpu','--remote-debugging-port=9222','--user-data-dir=/tmp/rb-visual-chrome','about:blank'],{stdio:'ignore'});
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
@@ -24,3 +25,5 @@ for(const [desktop,mobile,url,anchor] of targets){
  await sleep(800);pic=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});fs.writeFileSync('docs/images/'+mobile,Buffer.from(pic.data,'base64'));
 }
 ws.close();chrome.kill();
+
+})().catch(e=>{console.error(e);process.exitCode=1});
