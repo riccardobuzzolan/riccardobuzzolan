@@ -12,7 +12,7 @@ Sviluppo e aggiorno siti e piccole applicazioni web. In parallelo sto approfonde
 
 [Apri il sito](https://riccardobuzzolan.github.io/) · [Codice](https://github.com/riccardobuzzolan/riccardobuzzolan.github.io)
 
-![Anteprima grafica del sito personale](https://raw.githubusercontent.com/riccardobuzzolan/riccardobuzzolan.github.io/main/social-preview.png)
+![Schermata desktop del sito personale](docs/images/portfolio.png)
 
 Sito personale con informazioni sulle ripetizioni, progetti e contatti.
 
@@ -20,13 +20,15 @@ Sito personale con informazioni sulle ripetizioni, progetti e contatti.
 
 [Apri il sito](https://riccardobuzzolan.github.io/SitoRiccardoBuzzolan/) · [Codice](https://github.com/riccardobuzzolan/SitoRiccardoBuzzolan)
 
-![Anteprima grafica della pagina ripetizioni](https://raw.githubusercontent.com/riccardobuzzolan/SitoRiccardoBuzzolan/main/social-preview.png)
+![Schermata desktop del sito ripetizioni](docs/images/ripetizioni.png)
 
 Una pagina dedicata alle ripetizioni a Schio, Vicenza e online, con contenuti e contatto tramite WhatsApp o email.
 
 ### Memory Atlas
 
 [Apri il quiz](https://riccardobuzzolan.github.io/imparacapitalistati/) · [Codice](https://github.com/riccardobuzzolan/imparacapitalistati)
+
+![Schermata desktop del quiz Memory Atlas](docs/images/memory-atlas.png)
 
 Quiz sulle capitali di Stati Uniti, Europa e Sud America. I progressi sono salvati nel browser ed esportabili in JSON.
 
@@ -45,7 +47,7 @@ Nei progetti web utilizzo HTML, CSS, JavaScript e, quando serve, TypeScript. Per
 - [LinkedIn](https://www.linkedin.com/in/riccardobuzzolan/)
 - [Sito personale](https://riccardobuzzolan.github.io/)
 
-*Le immagini dei due siti sono le anteprime di condivisione già presenti nei repository, non screenshot delle pagine.*
+*Le immagini mostrano le versioni desktop dei siti pubblicati.*
 
 ## Informazioni sul repository
 
