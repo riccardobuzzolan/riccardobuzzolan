@@ -1,8 +1,8 @@
 # Riccardo Buzzolan
 
-Mi interessano la digitalizzazione, la gamification e l'uso degli strumenti digitali per organizzare informazioni e attività.
+> Digitalizzazione · Gamification · Dati
 
-Ho provato a realizzare alcuni siti e applicazioni per fare pratica e capire meglio come funzionano. In parallelo sto approfondendo Power BI, SQL e processi ERP.
+Mi interessano la digitalizzazione, la gamification e gli strumenti digitali applicati alle attività aziendali. Ho realizzato alcuni progetti personali per sperimentare e imparare, mentre sto approfondendo Power BI, SQL e processi ERP.
 
 [Portfolio](https://riccardobuzzolan.github.io/) · [LinkedIn](https://www.linkedin.com/in/riccardobuzzolan/)
 
@@ -11,6 +11,15 @@ Ho provato a realizzare alcuni siti e applicazioni per fare pratica e capire meg
 ### Scadenze fiscali
 
 [Apri il sito](https://scadenze-fiscali.vercel.app/)
+
+![Schermata desktop di Scadenze Fiscali](docs/images/scadenze-fiscali.png)
+
+<details>
+<summary>Schermata mobile</summary>
+
+![Schermata mobile di Scadenze Fiscali](docs/images/scadenze-fiscali-mobile.png)
+
+</details>
 
 Un calendario delle principali scadenze fiscali italiane, organizzato per rendere più semplice la consultazione di date, adempimenti e approfondimenti.
 
