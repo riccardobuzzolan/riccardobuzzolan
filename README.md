@@ -1,75 +1,104 @@
 # Riccardo Buzzolan
 
-Mi interessano i progetti digitali che risolvono problemi concreti: un sito facile da consultare, un quiz per imparare, uno strumento per trovare informazioni senza perdersi tra pagine diverse.
+Mi interessano la digitalizzazione, la gamification e l'uso degli strumenti digitali per organizzare informazioni e attività.
 
-Sviluppo e aggiorno siti e piccole applicazioni web. In parallelo sto approfondendo Power BI, SQL e processi ERP, con l'obiettivo di collegare le competenze digitali all'analisi aziendale.
+Ho provato a realizzare alcuni siti e applicazioni per fare pratica e capire meglio come funzionano. In parallelo sto approfondendo Power BI, SQL e processi ERP.
 
-![Progetti e interessi](docs/images/aree-progetti.svg)
+[Portfolio](https://riccardobuzzolan.github.io/) · [LinkedIn](https://www.linkedin.com/in/riccardobuzzolan/)
 
 ## Progetti
-
-### Sito personale
-
-[Apri il sito](https://riccardobuzzolan.github.io/) · [Codice](https://github.com/riccardobuzzolan/riccardobuzzolan.github.io)
-
-![Schermata desktop del sito personale](docs/images/portfolio.png)
-
-<details>
-<summary>Schermata mobile: portfolio</summary>
-
-![Versione mobile portfolio](docs/images/portfolio-mobile.png)
-
-</details>
-
-Sito personale con informazioni sulle ripetizioni, progetti e contatti.
-
-### Ripetizioni
-
-[Apri il sito](https://riccardobuzzolan.github.io/SitoRiccardoBuzzolan/) · [Codice](https://github.com/riccardobuzzolan/SitoRiccardoBuzzolan)
-
-![Schermata desktop del sito ripetizioni](docs/images/ripetizioni.png)
-
-<details>
-<summary>Schermata mobile: ripetizioni</summary>
-
-![Versione mobile ripetizioni](docs/images/ripetizioni-mobile.png)
-
-</details>
-
-Una pagina dedicata alle ripetizioni a Schio, Vicenza e online, con contenuti e contatto tramite WhatsApp o email.
-
-### Memory Atlas
-
-[Apri il quiz](https://riccardobuzzolan.github.io/imparacapitalistati/) · [Codice](https://github.com/riccardobuzzolan/imparacapitalistati)
-
-![Schermata desktop del quiz Memory Atlas](docs/images/memory-atlas.png)
-
-<details>
-<summary>Schermata mobile: Memory Atlas</summary>
-
-![Versione mobile Memory Atlas](docs/images/memory-atlas-mobile.png)
-
-</details>
-
-Quiz sulle capitali di Stati Uniti, Europa e Sud America. I progressi sono salvati nel browser ed esportabili in JSON.
 
 ### Scadenze fiscali
 
 [Apri il sito](https://scadenze-fiscali.vercel.app/)
 
-Un sito per consultare le scadenze fiscali italiane. Il repository di sviluppo non è pubblico.
+Un calendario delle principali scadenze fiscali italiane, organizzato per rendere più semplice la consultazione di date, adempimenti e approfondimenti.
 
-## Strumenti
+**Funzionalità**
+- Calendario 2026, filtri per periodo e tipologia, pagine dedicate alle singole scadenze e guide collegate.
+- Preferiti salvati nel browser ed esportazione delle scadenze in formato iCalendar (`.ics`).
+- Un'area di lavoro con raccolte, checklist, viste temporali ed esportazione di riepiloghi in PDF.
 
-Nei progetti web utilizzo HTML, CSS, JavaScript e, quando serve, TypeScript. Per pubblicare uso GitHub Pages e Vercel. Power BI, SQL ed ERP sono ambiti che sto studiando: non li presento come progetti già terminati.
+**Come è realizzato:** Astro e TypeScript, con dati delle scadenze gestiti in una sorgente centrale e pagine generate in fase di build. Il sito è pubblicato su Vercel. Le informazioni fiscali richiedono verifiche e aggiornamenti rispetto alle fonti ufficiali.
+
+*Il repository di sviluppo è privato.*
+
+### Memory Atlas
+
+[Prova il quiz](https://riccardobuzzolan.github.io/imparacapitalistati/) · [Repository](https://github.com/riccardobuzzolan/imparacapitalistati)
+
+Un progetto di gamification per esercitarsi sulle capitali di Stati Uniti, Europa e Sud America tramite mappe interattive.
+
+**Funzionalità**
+- Selezione degli stati o dei Paesi sulla mappa, domande sulle capitali e verifica delle risposte.
+- Modalità quiz rapido, avanzamento dell'apprendimento e riepilogo dei risultati.
+- Progressi salvati nel browser, con esportazione e importazione di backup JSON.
+
+**Come è realizzato:** TypeScript e Vite, mappe SVG, logica del quiz separata dai dati geografici e salvataggio locale. È disponibile anche come PWA, utilizzabile offline dopo il primo caricamento completo.
+
+![Schermata desktop di Memory Atlas](docs/images/memory-atlas.png)
+
+<details>
+<summary>Schermata mobile</summary>
+
+![Schermata mobile di Memory Atlas](docs/images/memory-atlas-mobile.png)
+
+</details>
+
+### Sito personale
+
+[Apri il sito](https://riccardobuzzolan.github.io/) · [Repository](https://github.com/riccardobuzzolan/riccardobuzzolan.github.io)
+
+Il mio sito personale, con informazioni sulle ripetizioni, alcuni progetti e i contatti.
+
+**Come è realizzato:** HTML, CSS e JavaScript senza framework applicativi o backend. Layout responsive, sezioni navigabili anche da tastiera, animazioni che rispettano le preferenze di movimento ridotto e collegamenti ai progetti. Pubblicato tramite GitHub Pages.
+
+![Schermata desktop del sito personale](docs/images/portfolio.png)
+
+<details>
+<summary>Schermata mobile</summary>
+
+![Schermata mobile del sito personale](docs/images/portfolio-mobile.png)
+
+</details>
+
+### Sito ripetizioni
+
+[Apri il sito](https://riccardobuzzolan.github.io/SitoRiccardoBuzzolan/) · [Repository](https://github.com/riccardobuzzolan/SitoRiccardoBuzzolan)
+
+Una pagina dedicata alle ripetizioni a Schio, Vicenza e online, con informazioni sui servizi, contenuti del percorso personale e modalità di contatto.
+
+**Funzionalità e struttura**
+- Pagine e sezioni adattate a desktop e smartphone, con navigazione e contenuti interattivi.
+- Pannello di contatto che prepara un messaggio WhatsApp o un'email, senza raccogliere le richieste su un server.
+- Interazioni accessibili da tastiera e contenuti esterni caricati in base alle preferenze del visitatore.
+
+**Tecnologie:** HTML, CSS e JavaScript; pubblicazione principale su GitHub Pages.
+
+![Schermata desktop del sito ripetizioni](docs/images/ripetizioni.png)
+
+<details>
+<summary>Schermata mobile</summary>
+
+![Schermata mobile del sito ripetizioni](docs/images/ripetizioni-mobile.png)
+
+</details>
+
+## Strumenti e argomenti di studio
+
+**Utilizzati nei progetti:** HTML, CSS, JavaScript, TypeScript, Astro, GitHub Pages e Vercel.
+
+**Sto approfondendo:** Power BI, SQL, analisi dei dati e processi ERP.
 
 ## Contatti
 
-- [LinkedIn](https://www.linkedin.com/in/riccardobuzzolan/)
-- [Sito personale](https://riccardobuzzolan.github.io/)
+[LinkedIn](https://www.linkedin.com/in/riccardobuzzolan/) · [Sito personale](https://riccardobuzzolan.github.io/)
 
-*Le immagini mostrano le versioni desktop dei siti pubblicati.*
+<details>
+<summary>Informazioni tecniche su questo repository</summary>
 
-## Informazioni sul repository
+Questo repository mantiene alcuni vecchi collegamenti al portfolio. Il sito attuale si trova in [riccardobuzzolan.github.io](https://github.com/riccardobuzzolan/riccardobuzzolan.github.io).
 
-Questo repository mantiene attivi alcuni vecchi collegamenti al portfolio. Il sito attuale si trova in [riccardobuzzolan.github.io](https://github.com/riccardobuzzolan/riccardobuzzolan.github.io). La configurazione e le istruzioni di manutenzione sono in [docs/TECHNICAL.md](docs/TECHNICAL.md).
+Configurazione e manutenzione: [docs/TECHNICAL.md](docs/TECHNICAL.md).
+
+</details>
