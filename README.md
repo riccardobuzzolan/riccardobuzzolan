@@ -30,8 +30,6 @@ Un calendario delle principali scadenze fiscali italiane, organizzato per render
 
 **Come è realizzato:** Astro e TypeScript, con dati delle scadenze gestiti in una sorgente centrale e pagine generate in fase di build. Il sito è pubblicato su Vercel. Le informazioni fiscali richiedono verifiche e aggiornamenti rispetto alle fonti ufficiali.
 
-*Il repository di sviluppo è privato.*
-
 ### Memory Atlas
 
 [Prova il quiz](https://riccardobuzzolan.github.io/imparacapitalistati/) · [Repository](https://github.com/riccardobuzzolan/imparacapitalistati)
@@ -58,7 +56,7 @@ Un progetto di gamification per esercitarsi sulle capitali di Stati Uniti, Europ
 
 [Apri il sito](https://riccardobuzzolan.github.io/) · [Repository](https://github.com/riccardobuzzolan/riccardobuzzolan.github.io)
 
-Il mio sito personale, con informazioni sulle ripetizioni, alcuni progetti e i contatti.
+Il mio sito personale, con informazioni su alcuni progetti e i contatti.
 
 **Come è realizzato:** HTML, CSS e JavaScript senza framework applicativi o backend. Layout responsive, sezioni navigabili anche da tastiera, animazioni che rispettano le preferenze di movimento ridotto e collegamenti ai progetti. Pubblicato tramite GitHub Pages.
 
