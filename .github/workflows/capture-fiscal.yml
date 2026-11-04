@@ -1,0 +1,31 @@
+name: Capture fiscal project screenshots
+on:
+  pull_request:
+    paths:
+      - .github/workflows/capture-fiscal.yml
+permissions:
+  contents: write
+jobs:
+  capture:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          ref: ${{ github.head_ref }}
+          persist-credentials: true
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444
+        with:
+          node-version: 22
+      - name: Capture real published website
+        run: node .github/scripts/capture-fiscal.cjs
+      - name: Save screenshots into pull request branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/images/scadenze-fiscali.png docs/images/scadenze-fiscali-mobile.png
+          if ! git diff --cached --quiet; then
+            git commit -m "Aggiunge schermate reali di Scadenze Fiscali"
+            git push origin HEAD:${{ github.head_ref }}
+          fi
